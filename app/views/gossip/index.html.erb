@@ -1,0 +1,13 @@
+<h1>Bienvenue sur the Hacking Gossip !</h1>
+
+<p>Voici la liste des différents gossips...</p>
+<%= link_to"Créer un nouveau gossip", new_gossip_path %>
+
+  <% @gossips.each_with_index do |j, i| %>
+<p>
+    <a href="/gossip/<%= (i+1)%>"><%= j.title %></a><br/>
+    <%= j.content %>
+</p>
+  <% end %>
+
+  
