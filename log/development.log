@@ -1,0 +1,1415 @@
+  [1m[35m (124.1ms)[0m  [1m[35mCREATE DATABASE "the_gossip_project_04_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (64.6ms)[0m  [1m[35mCREATE DATABASE "the_gossip_project_04_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-09 15:32:20.760136"], ["updated_at", "2021-02-09 15:32:20.760136"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-02-09 16:32:36 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (5.5ms)
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 16:32:43 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+Completed 404 Not Found in 30ms (ActiveRecord: 6.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=2):
+  
+app/controllers/gossip_controller.rb:10:in `show'
+Started GET "/gossip" for ::1 at 2021-02-09 16:32:47 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 1617ms (Views: 1615.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 16:32:52 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:32:58 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"AbaqZ4UPz97s/m1rYJWkO0ftXULKBB6g2stBdITVezQG2D/bIyyb5ksuUE2Bt062PkME8AouR4rGP3xenYpcbw==", "title"=>"o", "content"=>""}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 1198ms (Views: 20.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:33:05 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"yueF+IuD47iFyHFS/WIuIWG7OLjQayyjm190T8zSpgjNiRBELaC3gCIYTHQcQMSsGBVhChBBdYmHq0ll1Y2BUw==", "title"=>"oue", "content"=>"azza"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 26.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:33:09 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"Ay/h0JAUbkaZ7pKaE/j3TvqGRkapMuozzztSfic5gFgEQXRsNjc6fj4+r7zy2h3Dgygf9GkYsxnTz29UPmanAw==", "title"=>"saszasza", "content"=>"sazsaz"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (1.6ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "saszasza"], ["content", "sazsaz"], ["created_at", "2021-02-09 15:33:09.891836"], ["updated_at", "2021-02-09 15:33:09.891836"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 11ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:33:09 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 16:33:12 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:33:15 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossip/edit.html.erb:7
+  Rendered gossip/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:33:22 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"r8r3ozuFv59Q/g/5A8RLu/ZlQHexez5FerJ6eU+LeJaopGIfnabrp/cuMt/i5qE2j8sZxXFRZ29mRkdTVtRfzQ==", "title"=>"szazzz", "content"=>"szaaz"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "szazzz"], ["content", "szaaz"], ["created_at", "2021-02-09 15:33:22.363704"], ["updated_at", "2021-02-09 15:33:22.363704"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:33:22 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:33:28 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:38:02 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 16:38:04 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:38:07 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 46ms (Views: 44.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 16:39:15 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:39:17 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:39:30 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:41 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:44 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:44 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:46 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:47 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:47 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:48 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:48 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:42:49 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:44:37 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 16:44:40 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KiWxe2LXPO/Hzz2yRzbD3gX3RvIaMq4cYzJzseVGvlwtSyTHxPRo12AfAJSmFClTfFkfQNoY9zZ/xk6b/BmZBw==", "gossip"=>{"title"=>"saszasza", "content"=>"sazsaz"}, "id"=>"1"}
+  Rendering gossip/update.html.erb within layouts/application
+  Rendered gossip/update.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 16:46:31 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 44ms (Views: 24.8ms | ActiveRecord: 6.7ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 16:46:33 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fpcaj2+5B54k7IqhtYbE7Zy/zwdV+vTN9LlMI5NdFap5+Y8zyZpTpoM8t4dUpC5g5RGWtZXQrefoTXEJigIy8Q==", "gossip"=>{"title"=>"saszasza", "content"=>"sazsaz"}, "id"=>"1"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:46:33 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 16:46:51 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossip/2/edit" for ::1 at 2021-02-09 16:46:52 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:47:00 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qfHFUkJh3J0belkGa+U+Z2CBv78okjAh/M5M456Lkym+XtndL3OAfWDtSRAe2SCTwmxLTYLv9icK9nKchBarQw==", "gossip"=>{"title"=>"oue", "content"=>"non"}, "id"=>"2"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:47:00 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 16:49:39 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 20.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/gossip/2/edit" for ::1 at 2021-02-09 16:49:40 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (1.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:49:52 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k4yBZz26XDGP4wGW1XI35x02xXnCLow32M+Sfjlop8CEI53oUKgA0fR0EYCgTikTv9sxi2hTSjEu96wBI/Wfqg==", "gossip"=>{"title"=>"oui", "content"=>"non"}, "id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: title):
+  
+app/controllers/gossip_controller.rb:32:in `update'
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:52:05 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FczBwAhGtiZxxVmjvckfg/ifzvbBB9SvHGYbGc+Q8ogSolR8rmXiHtYVZIVc6/UOgTGXRAEtjYUAkiYz1s/V0w==", "gossip"=>{"title"=>"oui", "content"=>"non"}, "id"=>"2"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+Completed 400 Bad Request in 13ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: title):
+  
+app/controllers/gossip_controller.rb:32:in `update'
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:56:44 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FczBwAhGtiZxxVmjvckfg/ifzvbBB9SvHGYbGc+Q8ogSolR8rmXiHtYVZIVc6/UOgTGXRAEtjYUAkiYz1s/V0w==", "gossip"=>{"title"=>"oui", "content"=>"non"}, "id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 20ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:56:44 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 16:56:46 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/2/edit" for ::1 at 2021-02-09 16:56:48 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:56:49 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"alSgGcQyMAmeLFksJTgjaaAh2+RvNSbMLb+OvNOYrn99+7yWqSBs6eW7STpQBD2dAswvFsVI4Mrbh7DDyQWWFQ==", "gossip"=>{"title"=>"szazzz", "content"=>"szaaz"}, "id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:56:49 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 16:57:04 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/2/edit" for ::1 at 2021-02-09 16:57:05 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 16:57:06 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i8+CPOLnnARY4GjXo6PqLsBdI3p+K1qXXcEPkJXz0MCcYJ6zj/XA5CN3eMHWn/TaYrDXiNRWnJGr+THvj27oqg==", "gossip"=>{"title"=>"szazzz", "content"=>"szaaz"}, "id"=>"2"}
+  [1m[36mGossip Load (1.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 5ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:57:06 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 16:57:42 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:57:48 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"2Uj4Gqsi3U31skeYk5ZOwSLcmUQ1MVE40zwi/XDuEm/eJm2mDQGJdVJier5ytKRMW3LA9vUbCBLPyB/XabE1NA==", "title"=>"theo", "content"=>"cc"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "theo"], ["content", "cc"], ["created_at", "2021-02-09 15:57:48.446641"], ["updated_at", "2021-02-09 15:57:48.446641"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:57:48 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/3" for ::1 at 2021-02-09 16:57:50 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/3/edit" for ::1 at 2021-02-09 16:57:51 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/3" for ::1 at 2021-02-09 16:57:58 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y8SKnkkHaUVlPWcecZwc16HKC+u0NFfDteBbqnIuYg9i9L9dOkLXBTnpyPK83Rea58lKXz/xfBNDt3tLvN2T7w==", "gossip"=>{"title"=>"lea", "content"=>"meder"}, "id"=>"3"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:57:58 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/3" for ::1 at 2021-02-09 16:58:07 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 49ms (Views: 27.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/gossip/3/edit" for ::1 at 2021-02-09 16:58:08 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/gossip/3" for ::1 at 2021-02-09 16:58:16 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H2fPIiYCXWkpSUs6p7yoW/yap1uKlQOVzuoYXCN0NVweV/rhVUfjKXWd5NZq/aMWupnm7wFQKEU4vTi97YfEvA==", "gossip"=>{"title"=>"lea", "content"=>"meder"}, "id"=>"3"}
+  [1m[36mGossip Load (1.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `save' for false:FalseClass):
+  
+app/controllers/gossip_controller.rb:33:in `update'
+Started PATCH "/gossip/3" for ::1 at 2021-02-09 16:59:26 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H2fPIiYCXWkpSUs6p7yoW/yap1uKlQOVzuoYXCN0NVweV/rhVUfjKXWd5NZq/aMWupnm7wFQKEU4vTi97YfEvA==", "gossip"=>{"title"=>"lea", "content"=>"meder"}, "id"=>"3"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 26ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:59:26 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 16:59:28 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 16:59:31 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"+++pkGafhR0EKSFy4c7/huOThAi8vLLod3wjx6abG/X8gTwswLzRJaP5HFQA7BULmj3dunyW68JriB7tv8Q8rg==", "title"=>"dqzdsqdz", "content"=>"ssdqqdq"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "dqzdsqdz"], ["content", "ssdqqdq"], ["created_at", "2021-02-09 15:59:31.458928"], ["updated_at", "2021-02-09 15:59:31.458928"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:59:31 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/4" for ::1 at 2021-02-09 16:59:32 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/gossip/4/edit" for ::1 at 2021-02-09 16:59:34 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/gossip/4" for ::1 at 2021-02-09 16:59:42 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DQtmdcxcX0ECKaLpFIkszFT4yLzpXFh/SJsqAVCGBtAcF3A8Bl8Ul00D4MGkCUH/eTNXO8BsSwbb7LmPsxzfwQ==", "gossip"=>{"title"=>"no ffff", "content"=>"sfdsdcc"}, "id"=>"4"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.9ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "no ffff"], ["content", "sfdsdcc"], ["updated_at", "2021-02-09 15:59:42.674842"], ["id", 4]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:59:42 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/4" for ::1 at 2021-02-09 16:59:44 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (1.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/gossip/4/edit" for ::1 at 2021-02-09 16:59:46 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/4" for ::1 at 2021-02-09 16:59:54 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JfCK7qgJEKJQJMIyDw5Pcfv6YCtTsvW/f8b+/RC7mZ407JynYgpbdB8OgBq/jiJC1jH/rHqC5sbssW1z8yFAjw==", "gossip"=>{"title"=>"sisisi", "content"=>"jure"}, "id"=>"4"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (1.4ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "sisisi"], ["content", "jure"], ["updated_at", "2021-02-09 15:59:54.702030"], ["id", 4]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 16:59:54 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 17:01:00 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 17:01:01 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 48ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 17:01:11 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZQFMUHws8mBMfsSn319BiJMtNui4VGJn72pYeACcJ7QZCTlSKSMtyHACHLVD7B0sDypTsfuByi3qL5rOrMVRJA==", "gossip"=>{"title"=>"yousslamouss", "content"=>"marseille"}, "id"=>"1"}
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.5ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "yousslamouss"], ["content", "marseille"], ["updated_at", "2021-02-09 16:01:11.934241"], ["id", 1]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 11ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:01:11 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 17:01:16 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 42ms (Views: 38.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 17:01:18 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 44ms (Views: 41.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 17:01:19 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2wjQH1DnVbche8zy2331Cuo0CZ5J2vlFMg1FNNkSkB6nAKUdBeiKHx0HFOBHzqmudjNsxwoPUQ83SIeCdUvmjg==", "gossip"=>{"title"=>"yousslamouss", "content"=>"marseille"}, "id"=>"1"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:01:19 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 17:01:22 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 17:01:23 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 50ms (Views: 46.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-09 17:01:26 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/2/edit" for ::1 at 2021-02-09 17:01:28 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/2" for ::1 at 2021-02-09 17:01:33 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1xyWF5c1nM6x7CpGIrFJDSkTFo+qq8oL3oBtuXXYgi3As4qY+ifALsp7OlBXjVf5i/7ifQDWDA0ouFPGb0W6Rw==", "gossip"=>{"title"=>"dqzdsq", "content"=>"sdqdzqdqs"}, "id"=>"2"}
+  [1m[36mGossip Load (1.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.5ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "dqzdsq"], ["content", "sdqdzqdqs"], ["updated_at", "2021-02-09 16:01:33.451531"], ["id", 2]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 13ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:01:33 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 17:01:36 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 17:01:37 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 46ms (Views: 41.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 17:01:53 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XnYDIDa+ndOqezYvNFgIhQdLSXWYitXipL3LXIAoGJcifnYiY7FCe5YH7j2o61Qhm0wsLNtffaih+AnqLHFuBw==", "gossip"=>{"title"=>"ahouihein", "content"=>"mais non"}, "id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.7ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "ahouihein"], ["content", "mais non"], ["updated_at", "2021-02-09 16:01:53.195781"], ["id", 1]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 11ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:01:53 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-09 17:01:58 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/1/edit" for ::1 at 2021-02-09 17:01:59 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/1" for ::1 at 2021-02-09 17:02:00 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"baiY8m+uwr33XYfoiEqWbTr5hawRMNo44kuGfGxguy8RoO3wOqEdFcshX/oU+crJpv7g9VLlcnLnDkTKwDnNvw==", "gossip"=>{"title"=>"ahouihein", "content"=>"mais non"}, "id"=>"1"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:02:00 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:02:03 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 17:02:10 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 17:02:23 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"8Zi3oOS93HMLFhBUHas5GTNO11O6zGEgVyQRzfVLHDL29iIcQp6IS6zGLXL8idOUSuCO4XrmOApL0Czn7BQ7aQ==", "title"=>"sahquelplaisi", "content"=>"ezezez"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "sahquelplaisi"], ["content", "ezezez"], ["created_at", "2021-02-09 16:02:23.036116"], ["updated_at", "2021-02-09 16:02:23.036116"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 11ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:02:23 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gossip/5" for ::1 at 2021-02-09 17:02:24 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 43ms (Views: 39.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gossip/5/edit" for ::1 at 2021-02-09 17:02:26 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/gossip/5" for ::1 at 2021-02-09 17:02:47 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/61NLH5R4+O+PEgL5FxMuXpogUmlM0SEIYq8Ci7onq8jtJ1sZZdQi6riG6rlhLxrl7vjJ5e3ljoOMBVPqADOw==", "gossip"=>{"title"=>"testupdate", "content"=>"content of article"}, "id"=>"5"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.5ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "testupdate"], ["content", "content of article"], ["updated_at", "2021-02-09 16:02:47.923530"], ["id", 5]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:02:47 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 17:08:34 +0100
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 404ms (Views: 391.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 17:08:52 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"lxNM1EN6EZ0rq0ej++4H78n+1ukVQHZoWTO9Q2OR2DyQfdlo5VlFpYx7eoUazO1isFCPW9VqL0JFx4Bpes7/Zw==", "title"=>"basilyann", "content"=>"youss"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (1.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "basilyann"], ["content", "youss"], ["created_at", "2021-02-09 16:08:52.875325"], ["updated_at", "2021-02-09 16:08:52.875325"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 40ms (ActiveRecord: 14.8ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:08:52 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/6" for ::1 at 2021-02-09 17:08:55 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 32.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip/6/edit" for ::1 at 2021-02-09 17:08:56 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 42ms (Views: 37.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/gossip/6" for ::1 at 2021-02-09 17:09:08 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9dGaIRkMQmyebNpcD8nqxJC7LPb9+/ok0sEgBZzNGz5bDoIjpKc4svBD5hxdmzncfiNiYMJr4kWkXaXnnEmEjg==", "gossip"=>{"title"=>"change", "content"=>"update"}, "id"=>"6"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.6ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "change"], ["content", "update"], ["updated_at", "2021-02-09 16:09:08.817417"], ["id", 6]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 14ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:09:08 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/6" for ::1 at 2021-02-09 17:10:29 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (1.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/gossip/6/edit" for ::1 at 2021-02-09 17:10:31 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:12:56 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-09 17:13:10 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip/" for ::1 at 2021-02-09 17:13:14 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"authenticity_token"=>"006SCX0R4HxDAD48kYucTIHqTGH/X86yKugIPaF7CGbUIAe12zK0ROTQAxpwqXbB+EQV0z91l5g2HDUXuCQvPQ==", "title"=>"dazdzadad", "content"=>"dsdss"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (1.1ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "dazdzadad"], ["content", "dsdss"], ["created_at", "2021-02-09 16:13:14.333980"], ["updated_at", "2021-02-09 16:13:14.333980"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:18
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 10ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:13:14 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gossip/7" for ::1 at 2021-02-09 17:13:15 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/7/edit" for ::1 at 2021-02-09 17:13:17 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/gossip/7" for ::1 at 2021-02-09 17:13:24 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"plsywYja0YY8VHCoqJmz6B4w1JPaYatAkMcWnqc20rSJqcnIZk4FR484gmw9X9EVVh9OJN6t6XFfhLBCiQSTcQ==", "gossip"=>{"title"=>"cv", "content"=>"dsdss"}, "id"=>"7"}
+  [1m[36mGossip Load (1.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 269ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:13:24 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/7" for ::1 at 2021-02-09 17:13:31 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip/7/edit" for ::1 at 2021-02-09 17:13:33 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossip/7" for ::1 at 2021-02-09 17:13:45 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HHFF50/H43NSEWZuqOygRerjY5OFhQgVy6l+MFqF3z0zg77uoVM3suF9lKo9KsK4osz5JIFJSiQE6tjsdLee+A==", "gossip"=>{"title"=>"nique", "content"=>"thp"}, "id"=>"7"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.6ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "nique"], ["content", "thp"], ["updated_at", "2021-02-09 16:13:45.916182"], ["id", 7]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:13:45 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/7" for ::1 at 2021-02-09 17:13:50 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:10
+  Rendering gossip/show.html.erb within layouts/application
+  Rendered gossip/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gossip/7/edit" for ::1 at 2021-02-09 17:13:51 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:26
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/gossip/7" for ::1 at 2021-02-09 17:13:59 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gg1Qlf3JeE+8RI2rQDV0i+zpO7HQJwA4poFXPQmkmiGt/6ucE12sjg8of2/V8xZ2pMahBtTrQglpwvHhJ5bb5A==", "gossip"=>{"title"=>"putain", "content"=>"de merde"}, "id"=>"7"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[36mGossip Update (0.8ms)[0m  [1m[33mUPDATE "gossips" SET "title" = $1, "content" = $2, "updated_at" = $3 WHERE "gossips"."id" = $4[0m  [["title", "putain"], ["content", "de merde"], ["updated_at", "2021-02-09 16:13:59.642119"], ["id", 7]]
+  ↳ app/controllers/gossip_controller.rb:33
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:33
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 14ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-09 17:13:59 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.4ms)
+
+

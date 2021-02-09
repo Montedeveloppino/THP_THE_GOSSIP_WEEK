@@ -23,14 +23,20 @@ class GossipController < ApplicationController
   end
 
   def edit
+    @gossip = Gossip.find(params[:id])
   end
 
   def update
-    #gossip = Gossip.find(params[:id])
-    gossip.update_columns(title: params, content: params)
-    redirect_to '/gossip'
+      @gossip = Gossip.find(params[:id])
+      gossip_params = params.require(:gossip).permit(:title, :content)
+      @gossip.update(gossip_params)
+      redirect_to '/gossip'
   end
 
   def destroy
+    @gossip = Gossip.find(params[:id])
+    gossip_params = params.require(:gossip).permit(:title, :content)
+    @gossip.destroy(gossip_params)
+    redirect_to '/gossip'
   end
 end

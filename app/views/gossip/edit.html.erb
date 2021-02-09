@@ -1,15 +1,15 @@
-<html>
-  <head>
-    <title>Edit a gossip</title>
-  </head>
-  <body>
-    <h1>Modifier mon gossip</h1>
-    <p>Modifie ton gossip numéro =°<%= Gossip.find(params[:id]).id %></p>
-    <form action='/gossip/' method='POST'>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      Saisis ici ton nom : <input type='text' name='title'/><br/>
-      Balance ta modif : <input type='text' name='content'/><br/>
-       <input type='submit'/>
-    </form>
-  </body>
-</html>
+<h1>Edit gossip</h1>
+
+<%= form_for @gossip do |f|%>
+  <div>
+    <label>Titre gossip</label> <br/> 
+      <%= f.text_field :title %> <br/> <br/> 
+    <label>Contenu gossip</label> <br/> 
+      <%= f.text_area :content %><br/> <br/> 
+  </div>
+
+  <div>
+    <button type="submit">Edit</button>
+  </div>
+<% end %>
+thp
