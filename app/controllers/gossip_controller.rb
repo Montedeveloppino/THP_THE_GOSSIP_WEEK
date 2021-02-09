@@ -30,13 +30,15 @@ class GossipController < ApplicationController
       @gossip = Gossip.find(params[:id])
       gossip_params = params.require(:gossip).permit(:title, :content)
       @gossip.update(gossip_params)
+      puts "create"
       redirect_to '/gossip'
   end
 
   def destroy
     @gossip = Gossip.find(params[:id])
-    gossip_params = params.require(:gossip).permit(:title, :content)
-    @gossip.destroy(gossip_params)
+    @gossip.destroy
+    puts "#" * 60
+    puts "#" * 60
     redirect_to '/gossip'
   end
 end

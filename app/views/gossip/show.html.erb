@@ -2,4 +2,6 @@
  <p>Auteur : <%= @gossips.title %></p>
 <p>Gossip : <%= @gossips.content %></p>
 
-<%= link_to "edit", edit_gossip_path%>
+<%= link_to "edit", edit_gossip_path%>      
+<%= link_to 'Delete', @gossip, method: :delete %>
+
