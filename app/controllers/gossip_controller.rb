@@ -14,7 +14,6 @@ class GossipController < ApplicationController
     @gossip = Gossip.new
     @gossip.title = params["title"]
     @gossip.content = params["content"]
-    @gossip.save
     if @gossip.save 
       redirect_to '/gossip'
     else
