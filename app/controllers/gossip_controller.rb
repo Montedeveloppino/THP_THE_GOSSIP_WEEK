@@ -13,8 +13,12 @@ class GossipController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.create(gossip_params)
+    @gossip = Gossip.new(gossip_params)
+    if @gossip.save
     redirect_to gossip_index_path
+    else
+    redirect_to new_gossip_path
+    end
   end
 
   def edit
@@ -23,9 +27,11 @@ class GossipController < ApplicationController
 
   def update
       @gossip = Gossip.find(params[:id])
-      @gossip.update(gossip_params)
-
-      redirect_to gossip_index_path
+      if @gossip.update(gossip_params)
+        redirect_to gossip_index_path
+        else
+        redirect_to edit_gossip_path
+        end
   end
 
   def destroy

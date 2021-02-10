@@ -11,7 +11,7 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   
   <div class="form-group">
-    <label>ton commentaires</label>
+    <label>Ton commentaire</label>
     <%= f.text_area :commenter, class: 'form-control' %><br />
   </div>
   
@@ -24,13 +24,10 @@
    
 <% @gossip.comments.each do |comment| %>
   <p>
-    <strong>Commenter:</strong>
+    <strong>Commentaire:</strong>
     <%= comment.commenter %>
   </p>
-
-<% end %>
-  <p>
-
+  <% end %>
 
   
   
