@@ -31,7 +31,7 @@ class GossipController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to '/gossip'
+    redirect_to gossip_index_path
   end
 
   private

@@ -2,30 +2,34 @@
 <p>Titre : <%= @gossip.title %></p>
 <p>Contenu : <%= @gossip.content %></p>
 
-<p>
 <a href ="<%= edit_gossip_path%>" class = "btn btn-primary">Editer l'article</a>      
 <a href ="<%= gossip_path %>" class = "btn btn-danger" data-method = "DELETE">Supprimer l'article</a>
 <a href="<%= gossip_index_path%>"class = "btn btn-success">Revenir au menu<a>
 
 
-<h5 style="margin-top: 60px;">Commentaires</h5>
-   <div> 
-   <form action='/comments' method='POST'>
+<%= form_with(model: [ @gossip, @gossip.comments.build ], local: true) do |f| %>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label style="margin-left: 10px;">Écris ton commentaire</label> <br/>  
-    <textarea rows="2" cols="50" style="margin-left: 20px;" name="comment" ></textarea>
-    <input type="hidden" value="<%= @gossip.id %>" name="gossip_id">
-    <input type='submit'/>
-    </form>
-  </div> 
+  
+  <div class="form-group">
+    <label>ton commentaires</label>
+    <%= f.text_area :commenter, class: 'form-control' %><br />
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit %> 
+  <div>  
+  
+  <% end %>
 
    
-  <% @comments.each_with_index do |j| %>
-  <h6>Anonymous :</h6> 
-    <p style="margin-left: 10px;">
-   <%= j.comment %><br/>
+<% @gossip.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
   </p>
-  <% end %>
+
+<% end %>
+  <p>
 
 
   

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-
+    @comment = Comment.new
   end
 
   def edit
@@ -17,10 +17,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new    
-    @comment.gossip_id = params["gossip_id"]
-    @comment.comment = params["comment"]
-    @comment.save 
+    @gossip = Gossip.find(params[:gossip_id])
+    @comment = @gossip.comments.create(comment_params)
+    redirect_to gossip_path(@gossip)
   end
 
   def update
@@ -28,8 +27,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Commit.find(params["gossip_id"])
+    @gossip= Gossip.find(params[:gossip_id])
+    @comment = @gossip.comments.find(params[:id])
     @comment.destroy
+    redirect_to gossip_path(@gossip)
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:commenter)
   end
 
 end
