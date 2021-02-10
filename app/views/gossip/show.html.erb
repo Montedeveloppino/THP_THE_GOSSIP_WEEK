@@ -1,19 +1,20 @@
 <h1>Le show</h1>
-<p>Titre : <%= @gossips.title %></p>
-<p>Contenue : <%= @gossips.content %></p>
+<p>Titre : <%= @gossip.title %></p>
+<p>Contenu : <%= @gossip.content %></p>
 
-<%= link_to "edit", edit_gossip_path%>      
-<%= link_to 'Delete', @gossip, method: :delete %><br/><br/>
-<a href="/gossip">Revenir au menu<a>
+<p>
+<a href ="<%= edit_gossip_path%>" class = "btn btn-primary">Editer l'article</a>      
+<a href ="<%= gossip_path %>" class = "btn btn-danger" data-method = "DELETE">Supprimer l'article</a>
+<a href="<%= gossip_index_path%>"class = "btn btn-success">Revenir au menu<a>
 
 
 <h5 style="margin-top: 60px;">Commentaires</h5>
    <div> 
    <form action='/comments' method='POST'>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label style="margin-left: 10px;">Ecrit ton commentaire</label> <br/>  
+    <label style="margin-left: 10px;">Écris ton commentaire</label> <br/>  
     <textarea rows="2" cols="50" style="margin-left: 20px;" name="comment" ></textarea>
-    <input type="hidden" value="<%= @gossips.id %>" name="gossip_id">
+    <input type="hidden" value="<%= @gossip.id %>" name="gossip_id">
     <input type='submit'/>
     </form>
   </div> 

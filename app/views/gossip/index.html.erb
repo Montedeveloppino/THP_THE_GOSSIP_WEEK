@@ -1,14 +1,15 @@
 <h1 style="text-align: center; margin-top: 30px;">Bienvenue sur the Hacking Gossip !</h1>
-
 <h4 style="margin-left: 10px;" > <%=link_to"Créer un nouveau gossip", new_gossip_path%></h4>
-
 <p style="margin-left: 10px;">Voici la liste des différents gossips...</p>
 
-  <% @gossips.each_with_index do |j| %>
-<p style="margin-left: 10px; margin-top: 13px;">
-    <a href="/gossip/<%= j.id%>"><%= j.title %></a><br/>
-    <%= j.content %>
-</p>
+
+<% @gossip.each do |gossip| %>
+    <h2><%=  gossip.title %></h2>
+    <h2><%=  gossip.content %></h2>
+  <p>
+  <a href= "<%= edit_gossip_path(gossip.id) %>" class = "btn btn-primary"> Editer</a>
+  <a href= "<%= gossip_path(gossip.id) %>" class = "btn btn-primary"> Voir Gossip </a>
+  </p>
   <% end %>
 
 

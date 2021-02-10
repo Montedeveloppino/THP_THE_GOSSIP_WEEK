@@ -5,11 +5,26 @@
   <body>
     <h1>Crée un potin !</h1>
     <p>Balance ton potin via le formulaire ci-dessous</p>
-    <form action='/gossip/' method='POST'>
+    
+    <%= form_for :gossip, url: gossip_index_path  do |f| %>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      Saisi ici ton titre :  <input type='text' name='title'/><br/><br/>
-      Balance ton contenu : <input type='text' name='content'/><br/><br/>
-      <input type='submit'/>
-    </form>
+  
+  <div class="form-group">
+    <label>Titre de l'article</label>
+    <%= f.text_field :title, class: 'form-control' %><br />
+  </div>
+
+  <div class="form-group">
+    <label>Contenu de l'article</label>
+    <%= f.text_field :content, class: 'form-control'  %><br />
+  <div>  
+
+  <div class="form-group">
+    <%= f.submit %> 
+  <div>  
+  
+  
+  
+<% end %>
   </body>
 </html>
