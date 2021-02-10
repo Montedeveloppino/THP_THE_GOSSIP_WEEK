@@ -6,8 +6,9 @@ class GossipController < ApplicationController
   def new
   end
 
-  def show
+  def show 
     @gossips = Gossip.find(params[:id])
+    @comments =  Comment.where(gossip_id: params[:id])
   end
 
   def create
@@ -18,11 +19,11 @@ class GossipController < ApplicationController
       redirect_to '/gossip'
     else
       render '/gossip/new' 
-    end  
+    end 
   end
 
   def edit
-    @gossip = Gossip.find(params[:id])
+    @gossips = Gossip.find(params[:id])
   end
 
   def update
@@ -36,8 +37,8 @@ class GossipController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    puts "#" * 60
-    puts "#" * 60
     redirect_to '/gossip'
   end
+
+
 end
