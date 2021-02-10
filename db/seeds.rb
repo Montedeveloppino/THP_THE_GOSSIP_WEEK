@@ -5,5 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+User.destroy_all
+Gossip.destroy_all
 
-User.create(first_name:"Theo", last_name:"cazenave",bio:"le meilleu", email:"hello@thp.fr", age: 34, city:"grenoble")
+10.times do
+	user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph_by_chars(140, false), email: Faker::Internet.email, age: rand(18..80), city: Faker::Address.city)
+end
+
+10.times do
+  gossip = Gossip.create!(title: Faker::Movie.title, content: Faker::Movie.quote, user_id: User.id.all)
+end

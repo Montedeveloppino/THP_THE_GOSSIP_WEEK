@@ -17832,3 +17832,1291 @@ Processing by GossipController#show as HTML
 Completed 200 OK in 186ms (Views: 180.2ms | ActiveRecord: 2.9ms)
 
 
+Started GET "/gossip/" for ::1 at 2021-02-10 17:59:43 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Annabi/.rvm/gems/ruby-2.7.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (192.8ms)
+Completed 200 OK in 1280ms (Views: 1084.6ms | ActiveRecord: 147.1ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-10 17:59:47 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (1.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (4.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (745.4ms)
+Completed 200 OK in 974ms (Views: 891.3ms | ActiveRecord: 67.7ms)
+
+
+Started DELETE "/gossip/1" for ::1 at 2021-02-10 17:59:49 +0100
+Processing by GossipController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bghIZ1g+YHPDeFxrpKRrjlHIRH7UxuF1DMMb5UBTeAsA1+HRMnv3m9ErcYj3cbh69wpDY9FUAeYs4X60mbN7tQ==", "id"=>"1"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mComment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mGossip Destroy (7.2ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:39
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 19ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 17:59:50 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (2.8ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 117ms (Views: 112.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/gossip/4" for ::1 at 2021-02-10 17:59:51 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (70.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 4]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (76.6ms)
+Completed 200 OK in 143ms (Views: 63.0ms | ActiveRecord: 71.0ms)
+
+
+Started DELETE "/gossip/4" for ::1 at 2021-02-10 17:59:53 +0100
+Processing by GossipController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Hsvk/hexhkSA7ZnmAErmRTHu23+omM30QW4XOCEq38FwFE1IffQRrJK+tAVTnzWxlyzcYq0KLWdhTHJp+Mrcfw==", "id"=>"4"}
+  [1m[36mGossip Load (2.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:38
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 4]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mGossip Destroy (0.8ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:39
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 15ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 17:59:53 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (80.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (83.1ms)
+Completed 200 OK in 207ms (Views: 124.3ms | ActiveRecord: 80.3ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:06:09 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 150ms (Views: 148.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:06:16 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CrdCxCmw0CzdNQTjDRxARPoEOY2sUk6wmraOus4GfjpkaOtyQ/VHxM9mKQBeyZOwXMY+kKnAriO6lOvrF+Z9hA==", "gossip"=>{"title"=>"youssef", "content"=>"youssef"}, "commit"=>"Save Gossip"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:17
+Redirected to http://localhost:3000/gossip/new
+Completed 302 Found in 23ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:06:16 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:07:17 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 182ms (Views: 180.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:07:58 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 430ms (Views: 198.3ms | ActiveRecord: 131.6ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:08:05 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7pxjklVTkmx4JYDP5zI3OvQsvCpbYtj6eAi+wNsRHpCAQ8okPxYFhGp2rSy05+TOUu67N17wOGlYKtuRAvEdLg==", "gossip"=>{"title"=>"youssef", "content"=>"youssef"}, "commit"=>"Save Gossip"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (4.3ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "youssef"], ["content", "youssef"], ["created_at", "2021-02-10 17:08:05.138561"], ["updated_at", "2021-02-10 17:08:05.138561"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 13ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 18:08:05 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (12.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 104ms (Views: 90.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/gossip/5" for ::1 at 2021-02-10 18:08:07 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 5]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 210ms (Views: 129.6ms | ActiveRecord: 65.4ms)
+
+
+Started GET "/gossip/5/edit" for ::1 at 2021-02-10 18:08:11 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (51.6ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:25
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 166ms (Views: 110.9ms | ActiveRecord: 51.6ms)
+
+
+Started PATCH "/gossip/5" for ::1 at 2021-02-10 18:08:15 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RxtmBnyufVYoFG75kNJK7Kf62iRyjzoSre0L96ZC+rbZqqcwhXhENccErCjjN8B3MFu4DHfLk0QVghwl2tyHzg==", "gossip"=>{"title"=>"yo", "content"=>"youssef"}, "commit"=>"Update Gossip", "id"=>"5"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:29
+  [1m[35m (5.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:30
+  [1m[35m (3.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:30
+Redirected to http://localhost:3000/gossip/5/edit
+Completed 302 Found in 17ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/gossip/5/edit" for ::1 at 2021-02-10 18:08:15 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (76.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:25
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 234ms (Views: 150.9ms | ActiveRecord: 76.8ms)
+
+
+Started PATCH "/gossip/5" for ::1 at 2021-02-10 18:08:37 +0100
+Processing by GossipController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J5oYWLeLGrLHjvRh/P6WdHyB/hwBqn5xSANhFcD6xIdJRbHu3c6NWtXd2YKvK0WA2kP5AQQ4nuJoIQREGRrHOQ==", "gossip"=>{"title"=>"youssef", "content"=>"youssef"}, "commit"=>"Update Gossip", "id"=>"5"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:30
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:30
+Redirected to http://localhost:3000/gossip/5/edit
+Completed 302 Found in 206ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/gossip/5/edit" for ::1 at 2021-02-10 18:08:37 +0100
+Processing by GossipController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (1.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:25
+  Rendering gossip/edit.html.erb within layouts/application
+  Rendered gossip/edit.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 262ms (Views: 255.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/gossip/" for ::1 at 2021-02-10 18:08:39 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 144ms (Views: 141.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gossip/5" for ::1 at 2021-02-10 18:08:42 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 5]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 330ms (Views: 261.9ms | ActiveRecord: 54.3ms)
+
+
+Started DELETE "/gossip/5" for ::1 at 2021-02-10 18:08:43 +0100
+Processing by GossipController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6I+aBscYOB7gZ62t6c4+IBlh4kuvp7Ejd+g0tzts/zGGUDOwrV2v9vI0gE66G+3Uv6PlVqo1UbBXylHm4oz8jw==", "id"=>"5"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:38
+  [1m[35m (9.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mComment Load (64.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 5]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[36mGossip Destroy (1.4ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/gossip_controller.rb:39
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:39
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 86ms (ActiveRecord: 78.0ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 18:08:43 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 117ms (Views: 114.7ms | ActiveRecord: 0.9ms)
+
+
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Theo"], ["last_name", "cazenave"], ["bio", "le meilleu"], ["email", "hello@thp.fr"], ["age", 34], ["city", "grenoble"], ["created_at", "2021-02-10 17:12:12.164775"], ["updated_at", "2021-02-10 17:12:12.164775"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (52.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (71.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (58.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (23.1ms)[0m  [1m[35mDROP TABLE "gossips"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (52.3ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" character varying, "author" character varying, "author_city" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (44.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (51.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "commenter" text, "gossip_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0a34ec365a"
+FOREIGN KEY ("gossip_id")
+  REFERENCES "gossips" ("id")
+)[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_gossip_id" ON "comments"  ("gossip_id")[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (41.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "bio" text, "email" character varying, "age" integer, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210210153913_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Theo"], ["last_name", "cazenave"], ["bio", "le meilleu"], ["email", "hello@thp.fr"], ["age", 34], ["city", "grenoble"], ["created_at", "2021-02-10 17:16:18.910161"], ["updated_at", "2021-02-10 17:16:18.910161"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGossip Create (54.0ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "author", "author_city", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "le grand"], ["content", "barbare"], ["author", "Theo"], ["author_city", "grenoble"], ["user_id", 1], ["created_at", "2021-02-10 17:17:14.616836"], ["updated_at", "2021-02-10 17:17:14.616836"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+Started GET "/gossip" for ::1 at 2021-02-10 18:20:32 +0100
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Annabi/.rvm/gems/ruby-2.7.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (265.1ms)
+Completed 200 OK in 1875ms (Views: 1670.7ms | ActiveRecord: 166.9ms)
+
+
+Started GET "/gossip/1" for ::1 at 2021-02-10 18:20:39 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (9.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (76.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (1307.2ms)
+Completed 200 OK in 1600ms (Views: 1436.3ms | ActiveRecord: 149.1ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:20:48 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 179ms (Views: 173.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:21:04 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wqSWQbSUI67xkm//YQHrDHXo56Y469i3zS6mRHOyjResez/33tG0RuPBQhwy1Dj40yrguz15OCTtDMMVqlKOqQ==", "gossip"=>{"title"=>"youssef", "content"=>"youssef"}, "commit"=>"Save Gossip"}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:17
+Redirected to http://localhost:3000/gossip/new
+Completed 302 Found in 15ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:21:04 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 101ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:26:27 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 119ms (Views: 89.6ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:26:34 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELPX1lqnV208eTvGV22plHb03L1cBpDOq9U2L1VQPMh+bH5gMOLAhS4qFiUEuHpg0DbboFmUcF2L91N+jLA/dg==", "gossip"=>{"title"=>"youssef", "content"=>"youssef"}, "commit"=>"Save Gossip"}
+Completed 500 Internal Server Error in 419ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `u' for #<GossipController:0x00007ff570362618>):
+  
+app/controllers/gossip_controller.rb:16:in `create'
+Started GET "/gossip" for ::1 at 2021-02-10 18:26:51 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (210.9ms)
+Completed 200 OK in 413ms (Views: 257.7ms | ActiveRecord: 140.6ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 18:27:01 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 41ms (Views: 37.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:27:03 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 66ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:27:08 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FZJamgldyIQ+7e+xhTk9yuQ+wUnBWsF682yfhQk27ZF7TfMsYxhfbCy+wlLW7O4+QvzGVMTIIenTTvrU0NbuLw==", "gossip"=>{"title"=>"yous", "content"=>"youss"}, "commit"=>"Save Gossip"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `first_name' for nil:NilClass):
+  
+app/controllers/gossip_controller.rb:16:in `create'
+Started GET "/gossip" for ::1 at 2021-02-10 18:27:37 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 123ms (Views: 119.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:27:38 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 82ms (Views: 79.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:27:43 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4LW+ZnkdoC3Gr8lUGRBMwoSaFMCd718+ClzusfsObZOOahfQE1g3xdT85LdKxZ82IlgT3Zh9v60qfovgIu5uLQ==", "gossip"=>{"title"=>"fozejf", "content"=>"foizejofe"}, "commit"=>"Save Gossip"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `first_name' for nil:NilClass):
+  
+app/controllers/gossip_controller.rb:16:in `create'
+Started GET "/gossip" for ::1 at 2021-02-10 18:29:32 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 139ms (Views: 106.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:29:34 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 97ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:29:38 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UgxQ2r6PBw/dbLH57Eaw17BvFTZN8GAMB0rgXbL6B5U80/ls1MqQ588/nBq/k2MjFq0SK0higJ8naIUMaxoEKw==", "gossip"=>{"title"=>"hello", "content"=>"hello"}, "commit"=>"Save Gossip"}
+  [1m[35m (23.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:16
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Theo"], ["last_name", "cazenave"], ["bio", "le meilleu"], ["email", "hello@thp.fr"], ["age", 34], ["city", "grenoble"], ["created_at", "2021-02-10 17:29:38.814945"], ["updated_at", "2021-02-10 17:29:38.814945"]]
+  ↳ app/controllers/gossip_controller.rb:16
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:16
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 34.7ms)
+
+
+  
+ArgumentError (unknown keywords: :author, :author_city):
+  
+app/controllers/gossip_controller.rb:17:in `create'
+Started GET "/gossip" for ::1 at 2021-02-10 18:30:34 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 80ms (Views: 71.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:30:37 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 173ms (Views: 170.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:30:40 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FcRJiAn78IK1PCU/ECQDbIhkH+PG7D2qZnhhAYTb6a2iLiQSmJ4KhiH3XevlUP5FOOXYoqJUGWJu4TV3/NsGA==", "gossip"=>{"title"=>"fpoejz", "content"=>"ofjezp"}, "commit"=>"Save Gossip"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:16
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Theo"], ["last_name", "cazenave"], ["bio", "le meilleu"], ["email", "hello@thp.fr"], ["age", 34], ["city", "grenoble"], ["created_at", "2021-02-10 17:30:40.692444"], ["updated_at", "2021-02-10 17:30:40.692444"]]
+  ↳ app/controllers/gossip_controller.rb:16
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:16
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 61.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 0..1)):
+  
+app/controllers/gossip_controller.rb:17:in `create'
+Started GET "/gossip" for ::1 at 2021-02-10 18:33:35 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 137ms (Views: 115.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:33:37 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 74ms (Views: 70.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-10 18:33:47 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wq1wAak1riARgoc8ODEJPk3ubhMPbOImAcErerQ6Fsasctm3w3A5yAPRqt9r5NrK6yxpDgr+ArUh404rbdoVeA==", "gossip"=>{"title"=>"oeihfeozi", "content"=>"oiezhfezoihf"}, "commit"=>"Save Gossip"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[36mGossip Create (54.0ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "oeihfeozi"], ["content", "oiezhfezoihf"], ["created_at", "2021-02-10 17:33:47.910046"], ["updated_at", "2021-02-10 17:33:47.910046"]]
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossip_controller.rb:17
+Redirected to http://localhost:3000/gossip
+Completed 302 Found in 72ms (ActiveRecord: 65.1ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-10 18:33:47 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (15.9ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 100ms (Views: 81.7ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/gossip/2" for ::1 at 2021-02-10 18:34:30 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGossip Load (16.6ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+  Rendering gossip/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ app/views/gossip/show.html.erb:25
+  Rendered gossip/show.html.erb within layouts/application (54.1ms)
+Completed 200 OK in 239ms (Views: 114.2ms | ActiveRecord: 97.4ms)
+
+
+  [1m[36mGossip Load (1.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+Started GET "/gossip/new" for ::1 at 2021-02-10 18:37:07 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 149ms (Views: 144.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/neww" for ::1 at 2021-02-10 18:37:07 +0100
+Processing by GossipController#show as HTML
+  Parameters: {"id"=>"neww"}
+  [1m[36mGossip Load (1.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/gossip_controller.rb:11
+Completed 404 Not Found in 4ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gossip with 'id'=neww):
+  
+app/controllers/gossip_controller.rb:11:in `show'
+  [1m[35m (46.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (53.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (5.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (58.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (41.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "gossips"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (48.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (72.1ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (42.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "commenter" text, "gossip_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0a34ec365a"
+FOREIGN KEY ("gossip_id")
+  REFERENCES "gossips" ("id")
+)[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_gossip_id" ON "comments"  ("gossip_id")[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "bio" text, "email" character varying, "age" integer, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210210153913_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Theo"], ["last_name", "cazenave"], ["bio", "le meilleu"], ["email", "hello@thp.fr"], ["age", 34], ["city", "grenoble"], ["created_at", "2021-02-10 18:04:18.219356"], ["updated_at", "2021-02-10 18:04:18.219356"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (38.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGossip Load (3.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGossip Create (73.8ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "le grand"], ["content", "barbare"], ["created_at", "2021-02-10 18:04:48.684189"], ["updated_at", "2021-02-10 18:04:48.684189"]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[36mGossip Load (1.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[35m (50.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGossip Create (12.0ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "le grand"], ["content", "barbare"], ["created_at", "2021-02-10 18:05:24.864038"], ["updated_at", "2021-02-10 18:05:24.864038"]]
+  [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "le grand"], ["content", "barbare"], ["user_id", 1], ["created_at", "2021-02-10 18:06:23.806613"], ["updated_at", "2021-02-10 18:06:23.806613"]]
+  [1m[35m (74.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Leandro"], ["last_name", "Gulgowski"], ["bio", "Aut occaecati rem. Et aliquid voluptates. Dolorum tenetur quas. Delectus minus hic. Harum voluptate maiores. Quia laudantium porro. Soluta magni ipsam. Qui sit cumque. Distinctio ipsam velit. Eos quidem sint. Perspiciatis nisi blanditiis. Accusamus est no."], ["email", "kyra_bergnaum@yahoo.com"], ["age", 1248605045], ["city", "Jacobiborough"], ["created_at", "2021-02-10 18:14:25.290955"], ["updated_at", "2021-02-10 18:14:25.290955"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (57.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (27.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (6.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Andreas"], ["last_name", "Parisian"], ["bio", "Omnis et est. Culpa ex iure. Minus aliquam eaque. Illum illo tenetur. Autem id tempore. Aliquid reiciendis dolorum. Ipsa architecto corrupti. Sed distinctio nihil. Tenetur velit rerum. Quo ex ipsam. Nihil odio magnam. Dolor iusto itaque. Ut saepe et. Elig."], ["email", "adah_homenick@rippin.net"], ["age", 50], ["city", "Eulaliatown"], ["created_at", "2021-02-10 18:15:59.294277"], ["updated_at", "2021-02-10 18:15:59.294277"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Scarlet"], ["last_name", "Spinka"], ["bio", "Eveniet magni nisi. At dolores omnis. Quos reiciendis explicabo. Eos maiores consectetur. Distinctio facilis amet. Id qui dignissimos. Voluptatem accusamus et. Vitae quis quas. Quia amet sed. Et voluptate quis. Quis illo cum. Assumenda molestiae qui. Quid."], ["email", "sol_will@reichel-runolfsdottir.com"], ["age", 53], ["city", "Veumtown"], ["created_at", "2021-02-10 18:15:59.366019"], ["updated_at", "2021-02-10 18:15:59.366019"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Abigail"], ["last_name", "Rippin"], ["bio", "Voluptates sit illo. Dolorem dolor ratione. Eius nisi rerum. Voluptatum a corrupti. Reprehenderit corrupti quia. Perspiciatis ut ea. Nihil nostrum ad. Commodi asperiores quia. Repellat velit sed. Architecto nam officiis. Quibusdam ut ut. Ut aut amet. Sit ."], ["email", "donella@schumm-nitzsche.com"], ["age", 19], ["city", "South Lynetta"], ["created_at", "2021-02-10 18:15:59.444488"], ["updated_at", "2021-02-10 18:15:59.444488"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (27.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sherilyn"], ["last_name", "Tromp"], ["bio", "Et dignissimos qui. Dolor ullam qui. Voluptatibus porro deserunt. Asperiores quae sed. Et explicabo delectus. Autem necessitatibus cum. Fuga aut quae. Labore aut tenetur. Rerum atque expedita. Magni dolore sapiente. Culpa aut sit. Veritatis soluta error. ."], ["email", "seymour_rempel@parker-ritchie.io"], ["age", 44], ["city", "South Rachelville"], ["created_at", "2021-02-10 18:15:59.636602"], ["updated_at", "2021-02-10 18:15:59.636602"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (12.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Tyler"], ["last_name", "Durgan"], ["bio", "Velit pariatur reprehenderit. Quia aut et. Voluptatem et sequi. Tempore eaque omnis. Eum numquam omnis. Perspiciatis dolor sit. Ea animi et. Molestiae est aliquid. Dicta necessitatibus occaecati. Ut quibusdam et. Quis possimus vel. Perspiciatis aut porro.."], ["email", "son.johns@borer.co"], ["age", 68], ["city", "Lake Camie"], ["created_at", "2021-02-10 18:15:59.647020"], ["updated_at", "2021-02-10 18:15:59.647020"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Broderick"], ["last_name", "Emmerich"], ["bio", "Eius odio minus. Placeat et qui. Cum sapiente aperiam. Laborum hic est. Eum nulla corrupti. Architecto consequatur rerum. Sit neque architecto. Qui autem consequatur. Quis est qui. Dolorem aut eius. Laboriosam aut dicta. Quam veniam tenetur. Sit et fuga. ."], ["email", "toccara_mante@sanford-weimann.info"], ["age", 65], ["city", "Bartonmouth"], ["created_at", "2021-02-10 18:15:59.673746"], ["updated_at", "2021-02-10 18:15:59.673746"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Remedios"], ["last_name", "Ryan"], ["bio", "Ducimus alias quis. Quaerat nemo omnis. Temporibus corporis ut. Omnis magni ex. Quia velit aut. Voluptatem ut et. Ut qui vero. Et alias quidem. Quo est ex. Nihil cupiditate velit. Qui laudantium quidem. Tempora omnis qui. Ut libero blanditiis. Culpa occae."], ["email", "maire@greenholt-maggio.info"], ["age", 73], ["city", "Port Clintmouth"], ["created_at", "2021-02-10 18:15:59.686229"], ["updated_at", "2021-02-10 18:15:59.686229"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Mona"], ["last_name", "Bode"], ["bio", "Rerum id facilis. Sapiente ut alias. Deleniti quas qui. Eum nemo praesentium. Illum blanditiis velit. Sequi asperiores voluptatem. Rerum porro est. Rerum et repellat. Ullam quia et. Minima et quasi. Laborum cumque aut. Minus sed dolorem. Explicabo et dolo."], ["email", "winston_muller@sanford-fahey.org"], ["age", 66], ["city", "Port Bella"], ["created_at", "2021-02-10 18:15:59.700045"], ["updated_at", "2021-02-10 18:15:59.700045"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (37.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Seymour"], ["last_name", "Collier"], ["bio", "Voluptatem quis veritatis. Sunt ratione nemo. Et iure eligendi. Perferendis est quia. Qui omnis deleniti. Laboriosam qui autem. In tempore ex. Incidunt et velit. Vero rerum ex. Porro et tenetur. Et accusamus hic. Quis fugiat nemo. Id perspiciatis ex. Dolo."], ["email", "may.rutherford@roob.info"], ["age", 54], ["city", "Saustad"], ["created_at", "2021-02-10 18:15:59.854263"], ["updated_at", "2021-02-10 18:15:59.854263"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Daria"], ["last_name", "Connelly"], ["bio", "Laboriosam voluptatem hic. Eius ullam eligendi. Dolorem consequatur deleniti. Dolores rerum sunt. Qui repellat id. Reprehenderit libero eos. Dolorem occaecati facere. Aperiam nobis dolores. Nostrum eius eum. Molestias sit qui. Nesciunt sequi natus. Id et ."], ["email", "antonia.swaniawski@skiles-bins.biz"], ["age", 36], ["city", "Armstrongfurt"], ["created_at", "2021-02-10 18:15:59.887271"], ["updated_at", "2021-02-10 18:15:59.887271"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mGossip Load (1.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Mark"], ["last_name", "Koepp"], ["bio", "Et numquam laborum. Ut qui incidunt. Officiis aspernatur et. Perferendis explicabo vero. Omnis ut nulla. Enim in porro. Sint doloremque iusto. Ex fugiat nemo. Voluptates modi dolorem. Consequatur consectetur saepe. Est dignissimos rem. Qui doloremque temp."], ["email", "donovan_legros@douglas.com"], ["age", 77], ["city", "Kaitlynfurt"], ["created_at", "2021-02-10 18:20:56.393078"], ["updated_at", "2021-02-10 18:20:56.393078"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (17.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (17.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Rubi"], ["last_name", "Klein"], ["bio", "Earum quas ut. Et enim et. Tenetur ut et. Quis officiis dicta. Molestiae est magni. Enim nihil ut. Eius neque delectus. Rerum optio nam. Dolor ullam quibusdam. Porro vitae veritatis. Libero soluta dolor. Aut iste similique. Ut iste placeat. Dolor id neque."], ["email", "brenton@brown.name"], ["age", 72], ["city", "Fredericview"], ["created_at", "2021-02-10 18:20:56.496573"], ["updated_at", "2021-02-10 18:20:56.496573"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (28.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (4.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Norman"], ["last_name", "Lebsack"], ["bio", "Voluptate eum voluptas. Nostrum sit voluptatem. Dolore aspernatur sit. Amet voluptatibus a. Rerum quia et. Labore natus ea. Ut in ipsum. Ea quaerat et. Et harum reprehenderit. Eum sint accusantium. Quos officiis exercitationem. Reprehenderit ratione offic."], ["email", "mikel_schmeler@davis.info"], ["age", 76], ["city", "Waltraudhaven"], ["created_at", "2021-02-10 18:20:56.567534"], ["updated_at", "2021-02-10 18:20:56.567534"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (122.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Teri"], ["last_name", "Ryan"], ["bio", "Qui incidunt doloribus. Rerum omnis vero. Exercitationem culpa in. At debitis occaecati. Nihil similique quisquam. Rerum alias non. Ipsa illo distinctio. Sed neque amet. Alias ex consequuntur. Modi aliquid ut. Quidem molestiae inventore. Cumque aliquam qu."], ["email", "abdul_walker@hand-tillman.com"], ["age", 68], ["city", "New Bradly"], ["created_at", "2021-02-10 18:20:56.707298"], ["updated_at", "2021-02-10 18:20:56.707298"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Gaynell"], ["last_name", "Koepp"], ["bio", "Nulla ullam et. Doloribus quam atque. Amet porro rerum. Iste eos placeat. Et cupiditate quisquam. Voluptas dolor accusamus. Iusto enim impedit. Quo aliquid impedit. Rerum consequatur quaerat. Earum ut quasi. Quo sit blanditiis. Facere ratione nostrum. Quo."], ["email", "evon@tremblay-ziemann.biz"], ["age", 45], ["city", "Baoburgh"], ["created_at", "2021-02-10 18:20:56.719028"], ["updated_at", "2021-02-10 18:20:56.719028"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Ray"], ["last_name", "Huels"], ["bio", "Eligendi distinctio eos. Et reiciendis commodi. Veritatis est minima. Nam sint in. Ipsa et ab. Sapiente in non. Aut numquam blanditiis. Sed sunt dolores. Aut voluptatum in. Enim natus praesentium. Ducimus occaecati laborum. Aliquam quis inventore. Volupta."], ["email", "gilbert@hoppe.biz"], ["age", 73], ["city", "Lake Louella"], ["created_at", "2021-02-10 18:20:56.731365"], ["updated_at", "2021-02-10 18:20:56.731365"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Juana"], ["last_name", "Cronin"], ["bio", "Aliquid voluptatem alias. Laboriosam et aut. Reprehenderit fugiat molestiae. Est hic sit. Error sunt vel. Expedita repellat exercitationem. Quis amet cumque. Non labore totam. Pariatur quis consequatur. Eveniet expedita consequuntur. Alias exercitationem ."], ["email", "tennille@littel.net"], ["age", 55], ["city", "Haleymouth"], ["created_at", "2021-02-10 18:20:56.740796"], ["updated_at", "2021-02-10 18:20:56.740796"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Chung"], ["last_name", "Dickinson"], ["bio", "Nobis quaerat et. Neque quos perferendis. Quam est id. Impedit fugiat est. Officiis et accusantium. Amet nulla tempore. Similique quae nulla. A in amet. Sit quos reprehenderit. Doloribus optio rerum. Vitae inventore temporibus. Nisi laudantium ex. Et ulla."], ["email", "tony_mcclure@witting-kassulke.name"], ["age", 35], ["city", "Sherellborough"], ["created_at", "2021-02-10 18:20:56.750864"], ["updated_at", "2021-02-10 18:20:56.750864"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Stefanie"], ["last_name", "Grady"], ["bio", "Voluptas magni qui. In esse deserunt. Consequatur aliquid occaecati. Rerum maiores mollitia. Sunt excepturi corrupti. Assumenda ut quam. Odio eius unde. Eaque error laboriosam. Facilis eum atque. Consectetur voluptatem est. Impedit ea non. Minima magni si."], ["email", "vernice@greenfelder.org"], ["age", 65], ["city", "Claudioport"], ["created_at", "2021-02-10 18:20:56.809513"], ["updated_at", "2021-02-10 18:20:56.809513"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Raisa"], ["last_name", "Russel"], ["bio", "Nihil itaque sunt. Similique non alias. Adipisci perferendis fugiat. Nisi exercitationem molestiae. Velit ex ut. Neque hic dolore. Quae cumque vitae. Omnis sed reprehenderit. Optio assumenda temporibus. Nemo molestiae alias. Qui voluptatum voluptatibus. R."], ["email", "anabel.morissette@braun-nader.org"], ["age", 74], ["city", "North Benton"], ["created_at", "2021-02-10 18:20:56.883527"], ["updated_at", "2021-02-10 18:20:56.883527"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mGossip Create (1.2ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Sunset Blvd."], ["content", "You talking to me?"], ["user_id", 20], ["created_at", "2021-02-10 18:20:56.973085"], ["updated_at", "2021-02-10 18:20:56.973085"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:16
+  [1m[36mGossip Load (1.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (41.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (4.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:9
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (1.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:9
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 22]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGossip Load (1.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mComment Load (84.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mGossip Destroy (0.9ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[36mGossip Destroy (0.6ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[36mGossip Destroy (1.0ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 4]]
+  ↳ db/seeds.rb:10
+  [1m[36mGossip Destroy (0.6ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (19.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Brenda"], ["last_name", "Franecki"], ["bio", "Distinctio rerum et. Autem perspiciatis nemo. Dolore dolorum minus. Eos ad esse. Perferendis in ipsa. Quod neque dolores. Adipisci minima at. Autem explicabo quis. Ut est magnam. Non quam aut. Et quia laboriosam. Illo perferendis ea. Non sapiente vel. Qui."], ["email", "micheal.koch@miller.io"], ["age", 80], ["city", "North Nickolas"], ["created_at", "2021-02-10 18:22:05.614075"], ["updated_at", "2021-02-10 18:22:05.614075"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (26.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Akilah"], ["last_name", "Huel"], ["bio", "Rerum qui a. Et necessitatibus in. Sed accusamus voluptatem. Exercitationem quasi nobis. Nostrum ut perferendis. Quasi harum voluptatem. Dolores iure doloribus. Recusandae quam provident. Veritatis est est. Voluptatem eius vel. Aspernatur qui libero. Veli."], ["email", "ian.crona@hoppe-dooley.io"], ["age", 65], ["city", "Buckridgestad"], ["created_at", "2021-02-10 18:22:05.682384"], ["updated_at", "2021-02-10 18:22:05.682384"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (18.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Aleida"], ["last_name", "Klein"], ["bio", "Eius dolor numquam. Ut optio et. Inventore ab aut. Harum nulla fugiat. Consectetur facilis ducimus. Officia odit velit. Voluptatibus aut quod. Rerum neque rem. Provident esse perferendis. Quos tenetur doloribus. Reiciendis aspernatur ducimus. Deserunt sae."], ["email", "dena@anderson.biz"], ["age", 33], ["city", "Thadmouth"], ["created_at", "2021-02-10 18:22:05.731823"], ["updated_at", "2021-02-10 18:22:05.731823"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Kristopher"], ["last_name", "Nitzsche"], ["bio", "Sunt distinctio quos. Delectus blanditiis sed. Deserunt voluptatem quia. Vel temporibus fugiat. Sed voluptatem voluptatibus. Consequatur a vel. Aut et provident. Corporis officiis quis. Omnis qui voluptas. Ipsum et rerum. Ipsum est ex. Suscipit rem in. Ut."], ["email", "freida@konopelski-paucek.co"], ["age", 52], ["city", "Creminview"], ["created_at", "2021-02-10 18:22:05.744718"], ["updated_at", "2021-02-10 18:22:05.744718"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Bridgett"], ["last_name", "Keeling"], ["bio", "In dolores voluptatem. Alias sapiente ducimus. Cumque nihil perferendis. Odit sed dolores. Quae sint et. Vitae quod ex. Et non dolor. Consequuntur quos esse. Consequatur et atque. Ut sunt qui. Rerum sunt quo. Qui autem ea. Qui dolores rem. Iusto amet quo.."], ["email", "coletta.hansen@lynch.org"], ["age", 61], ["city", "New Amos"], ["created_at", "2021-02-10 18:22:05.789806"], ["updated_at", "2021-02-10 18:22:05.789806"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Carter"], ["last_name", "Thompson"], ["bio", "Maiores sit impedit. Harum eaque dolore. Odio repudiandae maxime. Et autem tenetur. Hic beatae fugiat. A quidem vero. Voluptatem sit ducimus. Quo et qui. Rem atque illum. Aut nam dolore. Nostrum et est. Libero tenetur qui. Dicta voluptas repellendus. Amet."], ["email", "heidy@oreilly.co"], ["age", 79], ["city", "Huelsmouth"], ["created_at", "2021-02-10 18:22:05.870504"], ["updated_at", "2021-02-10 18:22:05.870504"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Antione"], ["last_name", "McGlynn"], ["bio", "Incidunt sunt distinctio. Ratione quas qui. Impedit voluptatum ut. Officia beatae quasi. Animi ipsam sequi. Dolorum id qui. Explicabo soluta architecto. Voluptas modi illum. Incidunt repudiandae nemo. Ab et quo. Sit et modi. Modi officia commodi. Architec."], ["email", "tony_ferry@schoen.info"], ["age", 22], ["city", "Lake Maxine"], ["created_at", "2021-02-10 18:22:05.928045"], ["updated_at", "2021-02-10 18:22:05.928045"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (3.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (17.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jean"], ["last_name", "Kunze"], ["bio", "Eaque totam ut. Qui enim dolorum. Architecto assumenda ratione. Dolorem ea ducimus. Iusto amet sit. Est aspernatur aliquam. Sapiente iusto ipsa. Modi quia fuga. Mollitia velit dolorem. Temporibus porro amet. Perspiciatis et et. Non et assumenda. Expedita ."], ["email", "londa_purdy@parisian-fay.co"], ["age", 55], ["city", "South Christenaborough"], ["created_at", "2021-02-10 18:22:05.969238"], ["updated_at", "2021-02-10 18:22:05.969238"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Chang"], ["last_name", "Farrell"], ["bio", "Labore rerum tempore. Inventore asperiores accusantium. Ea iusto doloribus. Eveniet est iusto. Minima fugit iusto. Et corporis maxime. Eligendi enim labore. Omnis provident aliquam. Qui quia ut. Sint non ut. Et sed nobis. Enim tempore velit. Labore earum ."], ["email", "mirna_green@moore.name"], ["age", 74], ["city", "Lake Lexieshire"], ["created_at", "2021-02-10 18:22:06.012905"], ["updated_at", "2021-02-10 18:22:06.012905"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jefferey"], ["last_name", "Marvin"], ["bio", "Possimus incidunt et. Aut excepturi exercitationem. Voluptate eius quas. At sapiente minus. Quae molestiae quaerat. Hic provident odit. Maxime natus occaecati. Voluptas recusandae ab. Nulla labore quasi. Aut inventore quo. Omnis ipsam expedita. Ut maxime ."], ["email", "sang@friesen-kilback.biz"], ["age", 66], ["city", "Clairborough"], ["created_at", "2021-02-10 18:22:06.027950"], ["updated_at", "2021-02-10 18:22:06.027950"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (5.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:17
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 23]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 25]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 26]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 27]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 28]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 29]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 30]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 31]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Antonietta"], ["last_name", "Harris"], ["bio", "Ut sunt sit. Accusantium sapiente reprehenderit. Numquam omnis voluptatem. Velit porro quis. Aut est incidunt. Ut porro qui. Voluptatem et aut. Aperiam officia eius. Omnis aut eaque. Ratione animi quaerat. Eum qui ipsam. Iure dolor occaecati. Explicabo qu."], ["email", "lindsey@tromp-schoen.net"], ["age", 77], ["city", "Schillerhaven"], ["created_at", "2021-02-10 18:23:06.058779"], ["updated_at", "2021-02-10 18:23:06.058779"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (13.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (6.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Christena"], ["last_name", "Crooks"], ["bio", "Quis et maxime. Quas voluptas provident. Natus qui vitae. Aspernatur nostrum est. Dolorum sunt quos. Aspernatur quia eos. Provident placeat tempore. Commodi non in. Possimus quo architecto. Ut provident id. Voluptas et sit. Aut incidunt adipisci. Est temp."], ["email", "erick.stroman@jaskolski.net"], ["age", 74], ["city", "Lake Kali"], ["created_at", "2021-02-10 18:23:06.117746"], ["updated_at", "2021-02-10 18:23:06.117746"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (43.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Eliz"], ["last_name", "Feeney"], ["bio", "Asperiores ab qui. Consectetur voluptatibus quis. Placeat ut consectetur. Aut pariatur nesciunt. Et eaque debitis. Architecto dignissimos sit. Esse enim aperiam. Assumenda expedita facere. Voluptatum recusandae deleniti. Voluptatem porro asperiores. Autem."], ["email", "hilma_gutmann@barton.io"], ["age", 76], ["city", "New Dustin"], ["created_at", "2021-02-10 18:23:06.265209"], ["updated_at", "2021-02-10 18:23:06.265209"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sheryl"], ["last_name", "Walsh"], ["bio", "Nisi eligendi aliquam. Nam ut animi. Ea animi dolorum. Doloribus facere qui. Perspiciatis dolorem distinctio. Vel asperiores et. Omnis aperiam quia. Maiores rerum esse. Provident odio iure. Quia quos dolorum. Veritatis debitis veniam. Expedita explicabo n."], ["email", "kirstie@tremblay.biz"], ["age", 74], ["city", "Franeckibury"], ["created_at", "2021-02-10 18:23:06.299791"], ["updated_at", "2021-02-10 18:23:06.299791"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Elsie"], ["last_name", "Lynch"], ["bio", "Quos recusandae laudantium. Corrupti ratione aut. Consequatur a deleniti. Aliquam laborum est. Magni deserunt culpa. Distinctio nam est. Amet est ipsum. Aut esse voluptas. Veritatis in aut. Et odio quo. Sint ipsam consequatur. Nihil reiciendis porro. Ea e."], ["email", "jamee.leuschke@lueilwitz.org"], ["age", 56], ["city", "West Rupertmouth"], ["created_at", "2021-02-10 18:23:06.355250"], ["updated_at", "2021-02-10 18:23:06.355250"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Donovan"], ["last_name", "Kilback"], ["bio", "Eligendi illo quam. Est vel eius. Dolorum fugiat occaecati. Beatae culpa error. Delectus nobis tenetur. Ut eum vel. Ut vero totam. Aut omnis magnam. Nisi qui rerum. Et officia dolores. Praesentium dolorem illo. Numquam recusandae error. Sit blanditiis acc."], ["email", "domonique.monahan@ullrich-west.info"], ["age", 37], ["city", "Tresaton"], ["created_at", "2021-02-10 18:23:06.415159"], ["updated_at", "2021-02-10 18:23:06.415159"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jacinda"], ["last_name", "Rodriguez"], ["bio", "Aut excepturi modi. Est consequatur vero. Reprehenderit in corrupti. Repellendus ad magnam. Repudiandae rerum consectetur. Nostrum quod maiores. Facere quibusdam ad. Culpa mollitia ipsa. Error aut dolores. Incidunt explicabo possimus. Aperiam qui commodi.."], ["email", "rosy.herman@legros.io"], ["age", 34], ["city", "West Hollie"], ["created_at", "2021-02-10 18:23:06.459545"], ["updated_at", "2021-02-10 18:23:06.459545"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Rocky"], ["last_name", "Murphy"], ["bio", "Sunt omnis tempora. Ea amet dolore. Quo sed facere. Assumenda quasi quas. Repudiandae neque aperiam. Non excepturi quia. Dolore ea hic. Doloribus similique reprehenderit. Necessitatibus rerum consequatur. Dolorum iste ut. Non voluptas accusamus. Magni nos."], ["email", "louvenia_vandervort@feest-murazik.biz"], ["age", 19], ["city", "Nelsonport"], ["created_at", "2021-02-10 18:23:06.469463"], ["updated_at", "2021-02-10 18:23:06.469463"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Earle"], ["last_name", "Murray"], ["bio", "Non recusandae repellendus. Dolore aperiam quae. Adipisci odio velit. Vitae enim et. Rerum sint alias. Libero quo et. Voluptatem incidunt vero. Illum doloremque quos. Nobis vel quos. Et voluptas fugiat. Pariatur autem velit. Qui doloribus laudantium. Cum ."], ["email", "wendell_gleichner@ebert.info"], ["age", 33], ["city", "South Arlene"], ["created_at", "2021-02-10 18:23:06.480853"], ["updated_at", "2021-02-10 18:23:06.480853"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (9.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "bio", "email", "age", "city", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Hilario"], ["last_name", "Block"], ["bio", "Qui repellat iure. Est sit soluta. Assumenda corrupti et. Ipsa optio est. Sequi quia incidunt. Consequuntur cupiditate illum. Voluptatem modi in. Quo aut velit. Aut rerum est. Optio qui voluptatem. Eos quia sed. Illum quas accusamus. Ipsa aut vel. Enim co."], ["email", "candelaria@littel.net"], ["age", 75], ["city", "West Faustino"], ["created_at", "2021-02-10 18:23:06.586456"], ["updated_at", "2021-02-10 18:23:06.586456"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (10.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mGossip Load (1.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m

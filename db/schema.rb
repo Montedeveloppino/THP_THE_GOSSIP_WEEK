@@ -26,12 +26,10 @@ ActiveRecord::Schema.define(version: 2021_02_10_153913) do
   create_table "gossips", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.string "author"
-    t.string "author_city"
-    t.bigint "User_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_gossips_on_User_id"
+    t.index ["user_id"], name: "index_gossips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
