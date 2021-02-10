@@ -14,5 +14,5 @@ Gossip.destroy_all
 end
 
 10.times do
-  gossip = Gossip.create!(title: Faker::Movie.title, content: Faker::Movie.quote, user_id: User.id.all)
+  gossip = Gossip.create!(title: Faker::Movie.title, content: Faker::Movie.quote, user_id: rand(User.all.first.id..User.all.last.id))
 end
