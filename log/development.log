@@ -21025,3 +21025,197 @@ Migrating to CreateUsers (20210210153913)
   ↳ db/seeds.rb:16
   [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:16
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "gossips"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGossips (20210209101722)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/migrate/20210209101722_create_gossips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209101722"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210209223222)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "commenter" text, "gossip_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0a34ec365a"
+FOREIGN KEY ("gossip_id")
+  REFERENCES "gossips" ("id")
+)[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_gossip_id" ON "comments"  ("gossip_id")[0m
+  ↳ db/migrate/20210209223222_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210209223222"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210210153913)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "bio" text, "email" character varying, "age" integer, "city" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210210153913_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210210153913"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(935093265131900490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "email@example.com"], ["password_digest", "$2a$12$jW9nGYnZez/AcMZMd6.L8.x94Ak994zP9c.DRpsckrnxBU9diI6RS"], ["created_at", "2021-02-11 07:34:56.148882"], ["updated_at", "2021-02-11 07:34:56.148882"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email@example.com"], ["LIMIT", 1]]
+Started GET "/gossip" for ::1 at 2021-02-11 08:37:04 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (1.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 355ms (Views: 334.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-11 08:37:09 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (152.4ms)
+Completed 200 OK in 230ms (Views: 212.8ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/gossip" for ::1 at 2021-02-11 08:37:13 +0100
+Processing by GossipController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X3PsAy00yYICM5TzasC4hUUCAEAqu1NF0cXBRvjQ4jOpJTQA6XelB7fE9pdREA8QChS1brCM8MZ3Q41S6PKSFA==", "gossip"=>{"title"=>"dzqsdz", "content"=>"zdqzq"}, "commit"=>"Save Gossip"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossip_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/gossip_controller.rb:17
+Redirected to http://localhost:3000/gossip/new
+Completed 302 Found in 17ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip/new" for ::1 at 2021-02-11 08:37:13 +0100
+Processing by GossipController#new as HTML
+  Rendering gossip/new.html.erb within layouts/application
+  Rendered gossip/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 61ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gossip/" for ::1 at 2021-02-11 08:37:17 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:37:18 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:37:49 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:37:57 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 44ms (Views: 41.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:38:27 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:39:22 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/gossip" for ::1 at 2021-02-11 08:39:39 +0100
+Processing by GossipController#index as HTML
+  Rendering gossip/index.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossip/index.html.erb:6
+  Rendered gossip/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.4ms)
+
+
