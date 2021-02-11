@@ -1,6 +1,9 @@
 <h1>Le show</h1>
+
+<div>
 <p>Titre : <%= @gossip.title %></p>
 <p>Contenu : <%= @gossip.content %></p>
+</div>
 
 <a href ="<%= edit_gossip_path%>" class = "btn btn-primary">Editer l'article</a>      
 <a href ="<%= gossip_path %>" class = "btn btn-danger" data-method = "DELETE">Supprimer l'article</a>

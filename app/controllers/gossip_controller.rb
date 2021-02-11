@@ -13,11 +13,13 @@ class GossipController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(gossip_params)
+    @gossip = Gossip.create(gossip_params)
+    @gossip.user = User.find_by(id: session[:user_id])
     if @gossip.save
-    redirect_to gossip_index_path
+      flash[:success] = "Potin bien créé !"
+      redirect_to root_path
     else
-    redirect_to new_gossip_path
+      render :new
     end
   end
 

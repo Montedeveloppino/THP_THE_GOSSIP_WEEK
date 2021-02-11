@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-  
     @user.save
     redirect_to gossip_index_path
   end
@@ -41,3 +40,4 @@ class UsersController < ApplicationController
   end
 
 end
+ 
