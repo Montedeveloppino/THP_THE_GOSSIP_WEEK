@@ -42,7 +42,6 @@ class GossipController < ApplicationController
 
   private
   def gossip_params
-  params.require(:gossip).permit(:title, :content)
+    params.require(:gossip).permit(:title, :content, user_id: user.id)
   end
-
 end
