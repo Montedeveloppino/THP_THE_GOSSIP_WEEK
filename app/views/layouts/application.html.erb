@@ -17,8 +17,21 @@
 <nav class="navbar navbar-warning- bg-warning">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">The Gossip Project</span>
-    <a class="navbar-brand mb-0 h1" href="/users/new">login</a>
+  </div>
 </nav>
+
+<a class="navbar-brand mb-0 h1">
+    <% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Log Out", logout_path %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %> or 
+      <%= link_to "Log In", login_path %>
+    <% end %>
+    <p id=”notice”><%= notice %></p>
+</a> 
+
+
     <%= yield %>
   </body>
 </html>
