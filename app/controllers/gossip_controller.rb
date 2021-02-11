@@ -17,7 +17,7 @@ class GossipController < ApplicationController
     @gossip.user = User.find_by(id: session[:user_id])
     if @gossip.save
       flash[:success] = "Potin bien créé !"
-      redirect_to root_path
+      redirect_to gossip_index_path
     else
       render :new
     end
@@ -44,6 +44,6 @@ class GossipController < ApplicationController
 
   private
   def gossip_params
-    params.require(:gossip).permit(:title, :content, user_id: user.id)
+    params.require(:gossip).permit(:title, :content)
   end
 end
