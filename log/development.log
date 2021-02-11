@@ -21513,3 +21513,218 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:03 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/cc/Documents/THP/week4/day4/test12/ruby/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (164.8ms)
+  Rendered users/new.html.erb within layouts/application (166.6ms)
+Completed 200 OK in 405ms (Views: 377.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:44 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.3ms)
+  Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 104ms (Views: 77.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:46 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.5ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:46 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.1ms)
+  Rendered users/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:46 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (7.3ms)
+  Rendered users/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.3ms)
+  Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:26:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.5ms)
+  Rendered users/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 69ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:28:41 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:34:13 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (223.1ms)
+Completed 500 Internal Server Error in 227ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_index_path' for #<#<Class:0x00007fa6499390f8>:0x00007fa64a71ca80>
+Did you mean?  users_path):
+    2: 
+    3: <%= link_to 'Back', users_path %>
+    4: 
+    5: <%= form_for :users, url: users_index_path  do |f| %>
+    6: <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    7: 
+    8:   <div class="form-group">
+  
+app/views/users/new.html.erb:5:in `_app_views_users_new_html_erb__3401785805605273557_22960'
+Started GET "/users/new" for ::1 at 2021-02-11 09:34:40 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:36:06 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 84ms (Views: 54.1ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/users" for ::1 at 2021-02-11 09:37:35 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D8YpRiO+dnnRgFAX1vPEB+NUWexsjwKSN5BOgb0B80P5kPFF5/0a/GR3MnPtI3OSrELswva4oRGRFgKVrSODZA==", "users"=>{"first_name"=>"theo", "last_name"=>"cc", "bio"=>"j'en ai pas", "age"=>"202", "city"=>"dmd", "email"=>"hello@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Save Users"}
+Completed 400 Bad Request in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:38:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started GET "/users" for ::1 at 2021-02-11 09:38:02 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 42ms (Views: 37.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:38:05 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 58ms (Views: 35.9ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/users" for ::1 at 2021-02-11 09:38:19 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WgFr1TVjWmhIsSkNruKm5tDoJSU7bcWWmVmtizlcme2sV7PW8SA27f1GS2mVMhFzn/6QC6FaZhU/3+GfKX7pyg==", "user"=>{"first_name"=>"zdqds", "last_name"=>"dzq", "bio"=>"dzq", "age"=>"zdzqsd", "city"=>"sdzq", "email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Save User"}
+Unpermitted parameter: :password
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (2.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 34ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:40:20 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:40:26 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-02-11 09:41:06 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PZCMkIIqyfkQP28WjSayb5pgCpdEFNUqIiI6wm9BiSjLxlSTRmmlfKXIDXK29gX61Xa/ud4jdqmEpHbWf2P5Dw==", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Save User"}
+Unpermitted parameter: :password
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 27ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:41:40 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-02-11 09:41:46 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qsN3vFaTtlGNlmEEKGsNuuSIm/LnQkH1k/hXTd5ajOlcla+/ktDa1DhhA2ATu7ovq54u3H114nY1fhtZznj8zg==", "user"=>{"email"=>"test@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Save User"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "test@gmail.com"], ["password_digest", "mdp"], ["created_at", "2021-02-11 08:41:46.703568"], ["updated_at", "2021-02-11 08:41:46.703568"]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 31ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/new" for ::1 at 2021-02-11 09:41:55 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-02-11 09:42:43 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bM8UHZHiv5+bWOvHG+ppJgZMmJi323Swj9j8/bP//zuamcweVaHTGi6viaMgOt6zSVotti3s1zMpXrDpo92PHA==", "user"=>{"email"=>"test@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Save User"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "test@gmail.com"], ["password_digest", "mdp"], ["created_at", "2021-02-11 08:42:43.198505"], ["updated_at", "2021-02-11 08:42:43.198505"]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 27ms (ActiveRecord: 1.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "test@gmail.com"], ["password_digest", "mdp"], ["created_at", "2021-02-11 08:45:05.055710"], ["updated_at", "2021-02-11 08:45:05.055710"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
