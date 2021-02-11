@@ -1,15 +1,61 @@
-<h1 style="text-align: center; margin-top: 30px;">Bienvenue sur the Hacking Gossip !</h1>
-<a href= "<%= new_gossip_path %>" class = "btn btn-primary"> Créer un nouveau gossip</a>
-<p style="margin-left: 10px;">Voici la liste des différents gossips...</p>
 
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+<title>Cover Template for Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+<!-- Bootstrap core CSS -->
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="cover.css" rel="stylesheet">
+</head>
+
+
+<body class="text-center">
+<h1 style="text-align: center; padding-top: 140px;">Bienvenue sur the Hacking Gossip !</h1>
+<br>
+<a href= "<%= new_gossip_path %>" class = "btn btn-light btn-outline-info center;"> Créer un nouveau gossip</a>
+<br>
+<p style="margin-left: 10px; center;">Voici la liste des différents gossips...</p>
+<br>
 
 <% @gossip.each do |gossip| %>
-    <h2><%=  gossip.title %></h2>
-    <h2><%=  gossip.content %></h2>
-  <p>
-  <a href= "<%= edit_gossip_path(gossip.id) %>" class = "btn btn-primary"> Editer</a>
-  <a href= "<%= gossip_path(gossip.id) %>" class = "btn btn-primary"> Voir Gossip </a>
-  </p>
-  <% end %>
+  <div class="card-deck">
+    <div class="card">
+  <div class="card text-center">
+  <div class="card-header text-white bg-secondary">
+    The Story
+  </div>
+  <div class="card-body border-danger text-white bg-dark mb-3">
+    <h5 class="card-title border-danger text-white bg-dark"><%=  gossip.title %></h5>
+    <p class="card-text border-danger text-white bg-dark"><%=  gossip.content %></p>
+    <a href= "<%= edit_gossip_path(gossip.id) %>" class = "btn btn-light"> Edit</a>
+    <a href= "<%= gossip_path(gossip.id) %>" class = "btn btn-light"> See Gossip </a>
+
+</div>
+</div>
+
+<% end %>
+
+  </main>
+
+</div>
 
 
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+
+
+</body></html>
